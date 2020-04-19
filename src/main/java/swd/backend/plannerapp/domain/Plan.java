@@ -15,6 +15,7 @@ public class Plan {
 	private String type;	//tapahtuman tyyppi (esim. kokous, auton katsastus, lääkäri...)
 	private String desc;	//mahdollisia lisätietoja tapahtumaa koskien
 	private String duetime; //make this a date object
+	private boolean priority; //mahdollisuus listata tärkeimmät asiat erikseen
 	
 	public Plan() {
 	}
@@ -24,6 +25,7 @@ public class Plan {
 		this.type = type;
 		this.desc = desc;
 		this.duetime = duetime;
+		this.priority = false;
 	}
 
 	public long getId() {
@@ -66,8 +68,19 @@ public class Plan {
 		this.duetime = duetime;
 	}
 
+	public boolean isPriority() {
+		return priority;
+	}
+
+	public void setPriority(boolean priority) {
+		this.priority = priority;
+	}
+
 	@Override
 	public String toString() {
-		return "Plan [id=" + id + ", title=" + title + ", type=" + type + ", desc=" + desc + ", duetime=" + duetime + "]";
+		return "Plan [id=" + id + ", title=" + title + ", type=" + type + ", desc=" + desc + ", duetime=" + duetime
+				+ ", priority=" + priority + "]";
 	}
+
+	
 }
