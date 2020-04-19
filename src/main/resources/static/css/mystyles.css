@@ -1,0 +1,12 @@
+body {
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/pics/pic_one.jpg);
+	background-size: cover;
+}
+
+h1 {
+	color: #c0c0c0;
+}
+
+.container {
+	background-color: #3a3a3a;
+}
