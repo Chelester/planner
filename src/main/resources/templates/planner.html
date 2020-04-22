@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <title>Plan App</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,9 +39,8 @@
 		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 		      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    <form th:action="@{/logout}" method="post">
+		    	<button type="submit" class="btn btn-danger">Logout</button>
 		    </form>
 		  </div>
 		</nav>
@@ -64,11 +63,10 @@
 							<td th:text="${plan.desc}"></td>
 							<td th:text="${plan.duetime}"></td>
 							<td th:text="${plan.priority}"></td>
-							<td><a th:href="@{/delete/{id}(id=${plan.id})}" class="btn btn-danger">Delete</a></td>
+							<td sec:authorize="hasRole('ADMIN)"><a th:href="@{/delete/{id}(id=${plan.id})}" class="btn btn-danger">Delete</a></td>
 							<td><a th:href="@{/edit/{id}(id=${plan.id})}" class="btn btn-primary">Edit</a></td>
 						</tr>
 					</table>
-					<a class="btn btn-success" href="/add">Add Plan</a>
 				</div>
 				<div>
 					<table class="table table-dark table-striped table-sm">
@@ -91,7 +89,6 @@
 							<td><a th:href="@{/edit/{id}(id=${plan.id})}" class="btn btn-primary">Edit</a></td>
 						</tr>
 					</table>
-					<a class="btn btn-success" href="/add">Add Plan</a>
 				</div>
 			</div>
 		</div>

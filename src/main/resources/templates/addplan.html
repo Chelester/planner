@@ -39,10 +39,9 @@
 			    	<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 			    </li>
 			  </ul>
-			  <form class="form-inline my-2 my-lg-0">
-			  	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			  </form>
+			  <form th:action="@{/logout}" method="post">
+		    	<button type="submit" class="btn btn-danger">Logout</button>
+		    </form>
 			</div>
 		</nav>
 		<div class="container">
@@ -79,8 +78,11 @@
 						<input class="form-check-input" type="checkbox" value="true" id="priority" th:field="*{priority}" />
 						<label class="form-check-label" for="priority" th:field="*{priority}">Onko tämä tärkeä tehtävä?</label>
 					</div>
-						
-					<button type="submit" class="btn btn-success">Add</button>
+					
+					<div class="d-flex justify-content-between">
+						<button type="submit" class="btn btn-success">Add</button>
+						<a class="btn btn-warning" href="/planner" role="button">Cancel</a>
+					</div>
 				</form>
 			</div>
 		</div>
