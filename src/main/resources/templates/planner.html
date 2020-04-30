@@ -53,7 +53,7 @@
 							<th></th>
 							<th></th>
 						</tr>
-						<tr th:each="plan : ${plans}">
+						<tr th:unless="${plan.priority}" th:each="plan : ${plans}">
 							<td th:text="${plan.title}"></td>
 							<td th:text="${plan.type}"></td>
 							<td th:text="${plan.desc}"></td>
